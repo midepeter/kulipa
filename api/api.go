@@ -1,16 +1,16 @@
 package api
 
 import (
+	"log"
+	"net/http"
+
 	"github.com/gorilla/mux"
-	log "github.com/sirupsen/logrus"
-	config "github.com.spf13/viper"
-	"github.com/urfave/negroni"
-	"github.com/rs/cors"
+	"github.com/midepeter/gopay-app/api/routes"
 )
 
 //This represents a web API server
 type Server struct {
-	ou
+	routers
 }
 
 func (s *Server) init() {
@@ -19,10 +19,6 @@ func (s *Server) init() {
 	router.HandleFunc("/proceed", s.Proceed).Methods("POST")
 	router.HandleFunc("/pay", s.ProceedToPay).Methods("POST")
 
-	n := negroni.New()
-	n.UseFunc(s.ShutdownMiddleware)
-
-	n.UseHandler(router)
 	
-	s.sender.HTTPRouter.PathPrefix("/api").Handler(n)
+	log.Fatal(http.ListenAndServe(":8080", router))
 }

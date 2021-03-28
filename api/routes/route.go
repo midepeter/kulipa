@@ -1,15 +1,37 @@
 package routes
 
 import (
+	"encoding/json"
+	"io/ioutil"
 	"net/http"
+
+	"github.com/midepeter/gopay-app/api/utils"
+	"github.com/midepeter/gopay-app/store/models"
 )
 
-func Proceed(w http.ResponseWriter,r *http.Request){
-	w.WriteHeader(http.StatusOK)
-	w.Write("this is a very nice handerler")
+type Server struct {}
+
+func (s *Server) Hello(w http.ResponseWriter,r *http.Request){
+	w.Write([]byte("Hello to the welcome page"))
 }
 
-func ProceedToPay(w http.Response,r *http.Request){
+func (s *Server) Proceed(w http.ResponseWriter, r *http.Request) {
+	var student models.User
+	body, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		panic(err)
+	}
+
+	defer r.Body.Close()
+
+	err = json.Unmarshal(body, &student)
+	if err != nil {
+		panic(err)
+	}
 	w.WriteHeader(http.StatusOK)
-	W.Write("You can now proceed to pay")
+	_ = utils.Render(w, http.StatusOK, &student)
+}
+
+func (s *Server) ProceedToPay(w http.ResponseWriter,r *http.Request){
+	w.Write([]byte("This is handler for you to proceed to pay through flutterwave"))
 }
