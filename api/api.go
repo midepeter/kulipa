@@ -1,4 +1,4 @@
-package api
+package main
 
 import (
 	"log"
@@ -9,16 +9,13 @@ import (
 )
 
 //This represents a web API server
-type Server struct {
-	routers
-}
+func main() {
 
-func (s *Server) init() {
+	s := routes.Server{}
 	router := mux.NewRouter().PathPrefix("/api").Subrouter().StrictSlash(true)
 	router.HandleFunc("/", s.Hello).Methods("GET")
 	router.HandleFunc("/proceed", s.Proceed).Methods("POST")
 	router.HandleFunc("/pay", s.ProceedToPay).Methods("POST")
 
-	
-	log.Fatal(http.ListenAndServe(":8080", router))
+	log.Fatal(http.ListenAndServe(":8000", router))
 }
