@@ -42,7 +42,7 @@ func parseJWT(header string, r *http.Request) (*jwt.Token, error) {
 		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 			return nil, fmt.Errorf("unexpected siging method: %v", token.Header["alg"])
 		}
-		return []byte("random_secret"), nil
+		return []byte("random_string"), nil
 	})
 	if err != nil {
 		return nil, err
