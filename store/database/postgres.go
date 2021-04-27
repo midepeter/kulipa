@@ -65,3 +65,6 @@ func NewPgClient(ctx context.Context, config *Config, wait bool) (*PgClient, err
 		ctx: ctx,
 	}, nil
 }
+
+//This is to set up postgres database connection in the for the gopay-app
+//For the are in the spac
