@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
-	"sync"
 
 	"github.com/midepeter/gopay-app/api/utils"
 	"github.com/midepeter/gopay-app/store/models"

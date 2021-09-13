@@ -26,7 +26,7 @@ func Generatetoken(uid string) (string, error) {
 	tokenString, err := token.SignedString(tokenSecret)
 
 	if err != nil {
-		fmt.Errorf("Something went wrong: %s", err.Error())
+		err = fmt.Errorf("something went wrong: %s", err.Error())
 		return "", err
 	}
 	return tokenString, nil

@@ -1,6 +1,6 @@
 package models
 
-type Pay struct {
+type Payment struct {
 	FullName  string `json:"fullname"`
 	Email     string `json:"email"`
 	Number    int    `json:"number"`
