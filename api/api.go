@@ -1,17 +1,16 @@
-package main
+package api
 
 import (
 	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/midepeter/gopay-app/api/routes"
+	"github.com/midepeter/kulipa/api/routes"
 )
 
-//This represents a web API server
-func main() {
-
+func Run() {
 	s := routes.Server{}
+
 	router := mux.NewRouter().PathPrefix("/api").Subrouter().StrictSlash(true)
 	router.HandleFunc("/", s.Hello).Methods("GET")
 	router.HandleFunc("/proceed", s.Proceed).Methods("POST")

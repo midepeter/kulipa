@@ -5,8 +5,8 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/midepeter/gopay-app/api/utils"
-	"github.com/midepeter/gopay-app/store/models"
+	"github.com/midepeter/kulipa/api/utils"
+	"github.com/midepeter/kulipa/store/models"
 )
 
 type Server struct{}

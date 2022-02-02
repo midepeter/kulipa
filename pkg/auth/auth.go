@@ -4,6 +4,10 @@ import (
 	"fmt"
 )
 
-func BeginAuthentication() {
-	fmt.Println("This is to return begin authenticatio using casibin")
+func Generatetoken() {
+	fmt.Println("Verify token for for logging a user online")
+}
+
+func VerifyToken() {
+	fmt.Println("Verify token generate by the user")
 }
