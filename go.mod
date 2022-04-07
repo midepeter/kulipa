@@ -6,6 +6,7 @@ require (
 	github.com/go-playground/validator/v10 v10.10.1
 	github.com/gorilla/mux v1.8.0
 	github.com/jackc/pgx/v4 v4.15.0
+	github.com/sirupsen/logrus v1.8.1
 	gopkg.in/dgrijalva/jwt-go.v3 v3.2.0
 )
 
