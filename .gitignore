@@ -1,2 +1,4 @@
 store/database/postgres.go
 kulipa.db
+config.yml
+.env
